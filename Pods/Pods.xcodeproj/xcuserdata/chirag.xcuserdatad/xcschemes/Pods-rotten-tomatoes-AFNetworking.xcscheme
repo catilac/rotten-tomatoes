@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BE5305D1E51A4EB3A34295E7"
+               BlueprintIdentifier = "27A1C88FBBA44F4692FE34D9"
                BuildableName = "libPods-rotten-tomatoes-AFNetworking.a"
                BlueprintName = "Pods-rotten-tomatoes-AFNetworking"
                ReferencedContainer = "container:Pods.xcodeproj">
