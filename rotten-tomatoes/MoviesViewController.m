@@ -11,6 +11,7 @@
 #import "MovieViewController.h"
 #import "Movie.h"
 #import "MBProgressHUD.h"
+#import "ErrorPanel.h"
 
 @interface MoviesViewController ()
 
@@ -27,6 +28,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"Rotten Tomatoes";
     }
     return self;
 }
@@ -49,13 +51,19 @@
     hud.labelText = @"Loading";
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"%@", object);
-        
-        self.movies = [Movie moviesWithArray:object[@"movies"]];
-        [hud hide:YES];
-        [self.tableView reloadData];
+        if (connectionError != nil) {
+            [hud hide:YES];
+            [ErrorPanel showErrorAddedToWithMessage:self.view message:@"Network Error"];
+        } else {
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSLog(@"%@", object);
+            
+            
+            self.movies = [Movie moviesWithArray:object[@"movies"]];
+            [self.tableView reloadData];
+        }
     }];
+    
     
 }
 

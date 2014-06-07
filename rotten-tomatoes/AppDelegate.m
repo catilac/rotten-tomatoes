@@ -20,7 +20,6 @@
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:moviesTVC];
     self.window.rootViewController = nvc;
     
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

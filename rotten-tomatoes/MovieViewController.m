@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
 
-@property (nonatomic, strong) Movie *movie;
+@property (nonatomic, weak) Movie *movie;
 
 @end
 
