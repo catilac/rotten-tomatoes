@@ -30,9 +30,13 @@
     ErrorPanel *errPanel = [[self alloc] initWithFrame:CGRectMake(view.frame.origin.x,
                                                                   view.frame.origin.y + 63,
                                                                   view.frame.size.width,
-                                                                  view.frame.size.height*0.1)];
+                                                                  view.frame.size.height * 0.1f)];
+    errPanel.transform = CGAffineTransformMakeScale(1,0);
     [errPanel setMessage:message];
     [view addSubview:errPanel];
+    [UIView animateWithDuration:0.5f animations:^{
+        errPanel.transform = CGAffineTransformIdentity;
+    }];
     
     [errPanel performSelector:@selector(removeError) withObject:nil afterDelay:1.5];
     
@@ -51,7 +55,16 @@
 }
 
 - (void)removeError {
-    [self removeFromSuperview];
+    [UIView animateWithDuration:0.25f animations:^{
+        self.transform = CGAffineTransformMakeScale(0, 0);
+    }
+    completion:^(BOOL completed){
+        if (completed) {
+            [self removeFromSuperview];
+        }
+    }];
+    
+
 }
 
 // Only override drawRect: if you perform custom drawing.
