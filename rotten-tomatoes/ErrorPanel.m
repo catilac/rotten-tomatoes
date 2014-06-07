@@ -8,6 +8,12 @@
 
 #import "ErrorPanel.h"
 
+@interface ErrorPanel ()
+
+@property (nonatomic, strong) UILabel *msgLabel;
+
+@end
+
 @implementation ErrorPanel
 
 - (id)initWithFrame:(CGRect)frame
@@ -25,18 +31,23 @@
                                                                   view.frame.origin.y + 63,
                                                                   view.frame.size.width,
                                                                   view.frame.size.height*0.1)];
-    UILabel *label = [[UILabel alloc] initWithFrame:errPanel.bounds];
-    label.text = message;
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0f];
-    label.textAlignment = NSTextAlignmentCenter;
-    [errPanel addSubview:label];
+    [errPanel setMessage:message];
     [view addSubview:errPanel];
     
     [errPanel performSelector:@selector(removeError) withObject:nil afterDelay:1.5];
     
     return errPanel;
+}
+
+- (void)setMessage:(NSString *)message {
+    self.msgLabel = [[UILabel alloc] initWithFrame:self.bounds];
+    self.msgLabel.text = message;
+    self.msgLabel.backgroundColor = [UIColor clearColor];
+    self.msgLabel.textColor = [UIColor whiteColor];
+    self.msgLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0f];
+    self.msgLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.msgLabel];
+
 }
 
 - (void)removeError {

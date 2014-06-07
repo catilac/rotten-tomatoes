@@ -60,6 +60,7 @@
             
             
             self.movies = [Movie moviesWithArray:object[@"movies"]];
+            [hud hide:YES];
             [self.tableView reloadData];
         }
     }];
