@@ -16,7 +16,7 @@
 @interface MoviesViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray *movies;
 
 @end
@@ -33,6 +33,30 @@
     return self;
 }
 
+- (void)handleRefresh {
+    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError != nil) {
+            [ErrorPanel showErrorAddedToWithMessage:self.view message:@"Network Error"];
+        } else {
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSLog(@"%@", object);
+            
+            if (object[@"error"] != nil) {
+                [ErrorPanel showErrorAddedToWithMessage:self.view message:@"Network Error"];
+            } else {
+                self.movies = [Movie moviesWithArray:object[@"movies"]];
+                [self.tableView reloadData];
+            }
+        }
+        
+        [self.refreshControl endRefreshing];
+    }];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,14 +65,20 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 130;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"MovieCell" bundle:nil] forCellReuseIdentifier:@"MovieCell"];
+
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading";
 
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading";
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError != nil) {
@@ -58,10 +88,14 @@
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             NSLog(@"%@", object);
             
-            
-            self.movies = [Movie moviesWithArray:object[@"movies"]];
+            if (object[@"error"] != nil) {
+                [ErrorPanel showErrorAddedToWithMessage:self.view message:@"Network Error"];
+            } else {
+                self.movies = [Movie moviesWithArray:object[@"movies"]];
+                [self.tableView reloadData];
+            }
+
             [hud hide:YES];
-            [self.tableView reloadData];
         }
     }];
     
