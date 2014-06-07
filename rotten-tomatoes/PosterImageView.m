@@ -19,6 +19,20 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.alpha = 0.0f;
+    }
+    return self;
+}
+
+-(void)fadeIn {
+    [UIView animateWithDuration:1.0f animations:^ {
+        self.alpha = 1.0f;
+    }];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

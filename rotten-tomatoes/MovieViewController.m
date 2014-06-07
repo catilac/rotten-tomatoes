@@ -46,7 +46,7 @@
     self.movieLabel.text = self.movie.title;
     self.synopsisLabel.text = self.movie.synopsis;
     [self.posterImage setImageWithURL:[self.movie getDetailedPosterURL]];
-
+    [self.posterImage fadeIn];
 }
 
 - (void)didReceiveMemoryWarning
