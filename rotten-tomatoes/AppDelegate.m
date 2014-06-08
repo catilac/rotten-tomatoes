@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MoviesViewController.h"
+#import "TomatoNavigationController.h"
 #import "UIImageView+AFNetworking.h"
 
 
@@ -24,7 +25,8 @@
     
     
     MoviesViewController *moviesTVC = [[MoviesViewController alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:moviesTVC];
+    TomatoNavigationController *nvc = [[TomatoNavigationController alloc] initWithRootViewController:moviesTVC];
+    
     self.window.rootViewController = nvc;
     
     self.window.backgroundColor = [UIColor whiteColor];

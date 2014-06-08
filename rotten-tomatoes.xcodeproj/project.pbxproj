@@ -12,6 +12,7 @@
 		46592106194190E900B284C1 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46592104194190E900B284C1 /* MovieCell.m */; };
 		46592107194190E900B284C1 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46592105194190E900B284C1 /* MovieCell.xib */; };
 		4659210D1941986900B284C1 /* PosterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4659210C1941986900B284C1 /* PosterImageView.m */; };
+		46655F33194441780042A12B /* TomatoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655F32194441780042A12B /* TomatoNavigationController.m */; };
 		46B1AEFD1942EEE600C296E6 /* ErrorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1AEFC1942EEE600C296E6 /* ErrorPanel.m */; };
 		46BDA90A19416C8B0029B551 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BDA90919416C8B0029B551 /* Foundation.framework */; };
 		46BDA90C19416C8B0029B551 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BDA90B19416C8B0029B551 /* CoreGraphics.framework */; };
@@ -50,6 +51,8 @@
 		46592105194190E900B284C1 /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		4659210B1941986900B284C1 /* PosterImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosterImageView.h; sourceTree = "<group>"; };
 		4659210C1941986900B284C1 /* PosterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosterImageView.m; sourceTree = "<group>"; };
+		46655F31194441780042A12B /* TomatoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TomatoNavigationController.h; sourceTree = "<group>"; };
+		46655F32194441780042A12B /* TomatoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TomatoNavigationController.m; sourceTree = "<group>"; };
 		46B1AEFB1942EEE600C296E6 /* ErrorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorPanel.h; sourceTree = "<group>"; };
 		46B1AEFC1942EEE600C296E6 /* ErrorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorPanel.m; sourceTree = "<group>"; };
 		46BDA90619416C8B0029B551 /* rotten-tomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rotten-tomatoes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +114,8 @@
 				46F805331942A11900C7B6A0 /* MovieViewController.h */,
 				46F805341942A11900C7B6A0 /* MovieViewController.m */,
 				46F805351942A11900C7B6A0 /* MovieViewController.xib */,
+				46655F31194441780042A12B /* TomatoNavigationController.h */,
+				46655F32194441780042A12B /* TomatoNavigationController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			files = (
 				4659210119418BDA00B284C1 /* MoviesViewController.m in Sources */,
 				46B1AEFD1942EEE600C296E6 /* ErrorPanel.m in Sources */,
+				46655F33194441780042A12B /* TomatoNavigationController.m in Sources */,
 				46F805361942A11900C7B6A0 /* MovieViewController.m in Sources */,
 				46F8053A1942D6B200C7B6A0 /* Movie.m in Sources */,
 				46BDA91A19416C8B0029B551 /* AppDelegate.m in Sources */,
