@@ -120,7 +120,6 @@
     movieCell.titleLabel.text = movie.title;
     movieCell.synopsisLabel.text = movie.synopsis;
     [movieCell.posterView setImageWithURL:[movie getProfilePosterURL]];
-    
     [movieCell.posterView fadeIn];
     
     return movieCell;
