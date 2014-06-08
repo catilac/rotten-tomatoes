@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "MoviesViewController.h"
+#import "DVDSViewController.h"
+#import "BoxOfficeViewController.h"
 #import "TomatoNavigationController.h"
 #import "UIImageView+AFNetworking.h"
 
@@ -24,14 +25,11 @@
     [NSURLCache setSharedURLCache:sharedCache];
     
     
-    MoviesViewController *moviesTVC = [[MoviesViewController alloc] init];
-    moviesTVC.title = @"DVD";
-    TomatoNavigationController *nvc = [[TomatoNavigationController alloc] initWithRootViewController:moviesTVC];
+    DVDSViewController *dvdVC = [[DVDSViewController alloc] init];
+    TomatoNavigationController *nvc = [[TomatoNavigationController alloc] initWithRootViewController:dvdVC];
     
-    MoviesViewController *moviesTVC2 = [[MoviesViewController alloc] init];
-    moviesTVC2.title = @"Box Office";
-    moviesTVC2.apiEndpoint = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=7axwganmenhrsju2wpaxu42s";
-    TomatoNavigationController *nvc2 = [[TomatoNavigationController alloc] initWithRootViewController:moviesTVC2];
+    BoxOfficeViewController *boxOfficeVC = [[BoxOfficeViewController alloc] init];
+    TomatoNavigationController *nvc2 = [[TomatoNavigationController alloc] initWithRootViewController:boxOfficeVC];
 
     
     UITabBarController *tbc = [[UITabBarController alloc] init];

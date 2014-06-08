@@ -25,11 +25,9 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"MoviesViewController" bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Movies";
-        self.apiEndpoint = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=7axwganmenhrsju2wpaxu42s";
     }
     return self;
 }

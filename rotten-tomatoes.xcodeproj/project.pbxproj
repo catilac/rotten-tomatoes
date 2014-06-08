@@ -13,6 +13,8 @@
 		46592107194190E900B284C1 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46592105194190E900B284C1 /* MovieCell.xib */; };
 		4659210D1941986900B284C1 /* PosterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4659210C1941986900B284C1 /* PosterImageView.m */; };
 		46655F33194441780042A12B /* TomatoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655F32194441780042A12B /* TomatoNavigationController.m */; };
+		469715411944E0AD000AC6A3 /* DVDSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469715401944E0AD000AC6A3 /* DVDSViewController.m */; };
+		469715441944E0BD000AC6A3 /* BoxOfficeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469715431944E0BD000AC6A3 /* BoxOfficeViewController.m */; };
 		46B1AEFD1942EEE600C296E6 /* ErrorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1AEFC1942EEE600C296E6 /* ErrorPanel.m */; };
 		46BDA90A19416C8B0029B551 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BDA90919416C8B0029B551 /* Foundation.framework */; };
 		46BDA90C19416C8B0029B551 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BDA90B19416C8B0029B551 /* CoreGraphics.framework */; };
@@ -53,6 +55,10 @@
 		4659210C1941986900B284C1 /* PosterImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosterImageView.m; sourceTree = "<group>"; };
 		46655F31194441780042A12B /* TomatoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TomatoNavigationController.h; sourceTree = "<group>"; };
 		46655F32194441780042A12B /* TomatoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TomatoNavigationController.m; sourceTree = "<group>"; };
+		4697153F1944E0AD000AC6A3 /* DVDSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVDSViewController.h; sourceTree = "<group>"; };
+		469715401944E0AD000AC6A3 /* DVDSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVDSViewController.m; sourceTree = "<group>"; };
+		469715421944E0BD000AC6A3 /* BoxOfficeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxOfficeViewController.h; sourceTree = "<group>"; };
+		469715431944E0BD000AC6A3 /* BoxOfficeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxOfficeViewController.m; sourceTree = "<group>"; };
 		46B1AEFB1942EEE600C296E6 /* ErrorPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorPanel.h; sourceTree = "<group>"; };
 		46B1AEFC1942EEE600C296E6 /* ErrorPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorPanel.m; sourceTree = "<group>"; };
 		46BDA90619416C8B0029B551 /* rotten-tomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rotten-tomatoes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,10 @@
 				46F805351942A11900C7B6A0 /* MovieViewController.xib */,
 				46655F31194441780042A12B /* TomatoNavigationController.h */,
 				46655F32194441780042A12B /* TomatoNavigationController.m */,
+				4697153F1944E0AD000AC6A3 /* DVDSViewController.h */,
+				469715401944E0AD000AC6A3 /* DVDSViewController.m */,
+				469715421944E0BD000AC6A3 /* BoxOfficeViewController.h */,
+				469715431944E0BD000AC6A3 /* BoxOfficeViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -356,9 +366,11 @@
 				46655F33194441780042A12B /* TomatoNavigationController.m in Sources */,
 				46F805361942A11900C7B6A0 /* MovieViewController.m in Sources */,
 				46F8053A1942D6B200C7B6A0 /* Movie.m in Sources */,
+				469715411944E0AD000AC6A3 /* DVDSViewController.m in Sources */,
 				46BDA91A19416C8B0029B551 /* AppDelegate.m in Sources */,
 				46592106194190E900B284C1 /* MovieCell.m in Sources */,
 				46BDA91619416C8B0029B551 /* main.m in Sources */,
+				469715441944E0BD000AC6A3 /* BoxOfficeViewController.m in Sources */,
 				4659210D1941986900B284C1 /* PosterImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
