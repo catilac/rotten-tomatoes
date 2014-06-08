@@ -28,22 +28,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Rotten Tomatoes";
+        self.title = @"Movies";
+        self.apiEndpoint = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=7axwganmenhrsju2wpaxu42s";
     }
     return self;
 }
 
 - (void)handleRefresh {
-    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=7axwganmenhrsju2wpaxu42s";
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.apiEndpoint]];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError != nil) {
             [ErrorPanel showErrorAddedToWithMessage:self.view message:@"Network Error"];
         } else {
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            NSLog(@"%@", object);
             
             if (object[@"error"] != nil) {
                 [ErrorPanel showErrorAddedToWithMessage:self.view message:@"Network Error"];
@@ -74,10 +72,8 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading";
-
-    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=7axwganmenhrsju2wpaxu42s";
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.apiEndpoint]];
     
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {

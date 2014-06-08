@@ -25,9 +25,21 @@
     
     
     MoviesViewController *moviesTVC = [[MoviesViewController alloc] init];
+    moviesTVC.title = @"DVD";
     TomatoNavigationController *nvc = [[TomatoNavigationController alloc] initWithRootViewController:moviesTVC];
     
-    self.window.rootViewController = nvc;
+    MoviesViewController *moviesTVC2 = [[MoviesViewController alloc] init];
+    moviesTVC2.title = @"Box Office";
+    moviesTVC2.apiEndpoint = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=7axwganmenhrsju2wpaxu42s";
+    TomatoNavigationController *nvc2 = [[TomatoNavigationController alloc] initWithRootViewController:moviesTVC2];
+
+    
+    UITabBarController *tbc = [[UITabBarController alloc] init];
+    [tbc addChildViewController:nvc];
+    [tbc addChildViewController:nvc2];
+    
+    
+    self.window.rootViewController = tbc;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
