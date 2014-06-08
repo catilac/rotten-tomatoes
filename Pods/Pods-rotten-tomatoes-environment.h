@@ -48,12 +48,6 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 2
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
 
-// FastImageCache
-#define COCOAPODS_POD_AVAILABLE_FastImageCache
-#define COCOAPODS_VERSION_MAJOR_FastImageCache 1
-#define COCOAPODS_VERSION_MINOR_FastImageCache 3
-#define COCOAPODS_VERSION_PATCH_FastImageCache 0
-
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0

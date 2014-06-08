@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MoviesViewController.h"
+#import "UIImageView+AFNetworking.h"
+
 
 @implementation AppDelegate
 
@@ -15,6 +17,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:2 * 1024 * 1024
+                                                            diskCapacity:100 * 1024 * 1024
+                                                                diskPath:nil];
+    [NSURLCache setSharedURLCache:sharedCache];
+    
     
     MoviesViewController *moviesTVC = [[MoviesViewController alloc] init];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:moviesTVC];
