@@ -47,10 +47,8 @@
     self.synopsisLabel.text = self.movie.synopsis;
     
     [self.posterImage setImageWithURL:[self.movie getProfilePosterURL]];
-    [self.posterImage setImageWithURLRequest:[NSURLRequest requestWithURL:[self.movie getDetailedPosterURL]]
-                            placeholderImage:nil
-                                     success:nil
-                                     failure:nil];
+    [self.posterImage setImageWithURL:[self.movie getDetailedPosterURL] placeholderImage:self.posterImage.image];
+    
     [self.posterImage fadeIn];
 }
 
