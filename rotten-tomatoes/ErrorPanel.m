@@ -34,7 +34,7 @@
     errPanel.transform = CGAffineTransformMakeScale(1,0);
     [errPanel setMessage:message];
     [view addSubview:errPanel];
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         errPanel.transform = CGAffineTransformIdentity;
     }];
     
@@ -55,8 +55,10 @@
 }
 
 - (void)removeError {
+    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     [UIView animateWithDuration:0.25f animations:^{
-        self.transform = CGAffineTransformMakeScale(0, 0);
+        self.alpha = 0.0f;
+        self.transform = CGAffineTransformMakeTranslation(-width, 0);
     }
     completion:^(BOOL completed){
         if (completed) {
