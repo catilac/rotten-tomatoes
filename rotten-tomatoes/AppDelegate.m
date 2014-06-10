@@ -7,9 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "DVDSViewController.h"
-#import "BoxOfficeViewController.h"
 #import "TomatoNavigationController.h"
+#import "MoviesViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 
@@ -25,10 +24,14 @@
     [NSURLCache setSharedURLCache:sharedCache];
     
     
-    DVDSViewController *dvdVC = [[DVDSViewController alloc] init];
+    MoviesViewController *dvdVC = [[MoviesViewController alloc] init];
+    dvdVC.title = @"DVD";
+    dvdVC.apiCall = DVDMovies;
     TomatoNavigationController *nvc = [[TomatoNavigationController alloc] initWithRootViewController:dvdVC];
     
-    BoxOfficeViewController *boxOfficeVC = [[BoxOfficeViewController alloc] init];
+    MoviesViewController *boxOfficeVC = [[MoviesViewController alloc] init];
+    boxOfficeVC.title = @"Box Office";
+    boxOfficeVC.apiCall = BoxOfficeMovies;
     TomatoNavigationController *nvc2 = [[TomatoNavigationController alloc] initWithRootViewController:boxOfficeVC];
 
     

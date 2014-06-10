@@ -32,8 +32,23 @@
     return self;
 }
 
+- (NSString *) getAPIEndpoint {
+    switch (self.apiCall) {
+        case DVDMovies:
+            return @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=7axwganmenhrsju2wpaxu42s";
+            break;
+        case BoxOfficeMovies:
+            return @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=7axwganmenhrsju2wpaxu42s";
+            break;
+        case SearchMovies:
+            return @"http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=7axwganmenhrsju2wpaxu42s";
+            break;
+    }
+}
+
+
 - (void)handleRefresh {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.apiEndpoint]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self getAPIEndpoint]]];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError != nil) {
@@ -71,7 +86,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading";
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.apiEndpoint]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self getAPIEndpoint]]];
     
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
