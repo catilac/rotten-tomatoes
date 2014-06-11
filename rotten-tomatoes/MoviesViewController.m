@@ -128,6 +128,8 @@
 
     movieCell.titleLabel.text = movie.title;
     movieCell.synopsisLabel.text = movie.synopsis;
+    movieCell.synopsisLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    [movieCell.synopsisLabel sizeToFit];
     [movieCell.posterView setImageWithURL:[movie getProfilePosterURL]];
     [movieCell.posterView fadeIn];
     
